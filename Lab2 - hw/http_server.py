@@ -7,6 +7,7 @@ import json
 class Request:
     def __init__(self):
         self.body = None
+        self.args = None
 
 
 request = Request()
@@ -20,6 +21,8 @@ class CustomHandler(http.server.BaseHTTPRequestHandler):
         return 'Not found', 404
 
     def _complete_request(self, handler):
+        request.body = None
+
         content_type = self.headers.get('content-type')
         content_length = self.headers.get('content-length')
 
@@ -47,6 +50,16 @@ class CustomHandler(http.server.BaseHTTPRequestHandler):
         out_wrapper.detach()  # prevent from closing the file
 
     def do_GET(self):
+        request.args = None
+        if '?' in self.path:
+            self.path, args = self.path.split('?')
+            request.args = {}
+            for pair in args.split('&'):
+                if not pair:
+                    continue
+                key, value = pair.split('=')
+                request.args[key] = value
+
         self._complete_request(self.MAPPING.get(('GET', self.path), self.handler_404))
 
     def do_POST(self):
