@@ -1,0 +1,231 @@
+{
+	"info": {
+		"_postman_id": "20117fd9-b0fd-4130-b80c-69e804e4422f",
+		"name": "Cloud",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://{{SERVER}}/pilot",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{SERVER}}/pilots",
+					"protocol": "http",
+					"host": [
+						"{{SERVER}}"
+					],
+					"path": [
+						"pilots"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://{{SERVER}}/pilots?id=65ea2e2849ef9a00e0dcd558",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{SERVER}}/pilots?id=65ea2e2849ef9a00e0dcd558",
+					"protocol": "http",
+					"host": [
+						"{{SERVER}}"
+					],
+					"path": [
+						"pilots"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "65ea2e2849ef9a00e0dcd558"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://{{SERVER}}/pilots",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"first_name\": \"Max\",\r\n    \"last_name\": \"Verstappen\",\r\n    \"score\": 120\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{SERVER}}/pilots",
+					"protocol": "http",
+					"host": [
+						"{{SERVER}}"
+					],
+					"path": [
+						"pilots"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://{{SERVER}}/pilots?id=65ea2e2849ef9a00e0dcd558",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"first_name\": \"Max\",\r\n    \"last_name\": \"Verstappen\",\r\n    \"score\": 120\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{SERVER}}/pilots?id=65eb69d7ba9fe7f5ecfc4b11",
+					"protocol": "http",
+					"host": [
+						"{{SERVER}}"
+					],
+					"path": [
+						"pilots"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "65eb69d7ba9fe7f5ecfc4b11"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://{{SERVER}}/pilots",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://{{SERVER}}/pilots",
+					"protocol": "http",
+					"host": [
+						"{{SERVER}}"
+					],
+					"path": [
+						"pilots"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://{{SERVER}}/pilots",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"first_name\": \"Cosmin\",\r\n    \"last_name\": \"Turtureanu\",\r\n    \"score\": 150\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{SERVER}}/pilots?id=65eb69d7ba9fe7f5ecfc4b11",
+					"protocol": "http",
+					"host": [
+						"{{SERVER}}"
+					],
+					"path": [
+						"pilots"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "65eb69d7ba9fe7f5ecfc4b11"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://{{SERVER}}/pilots?id=65ea2e2849ef9a00e0dcd550",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://{{SERVER}}/pilots",
+					"protocol": "http",
+					"host": [
+						"{{SERVER}}"
+					],
+					"path": [
+						"pilots"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://{{SERVER}}/pilots?id=65ea2e2849ef9a00e0dcd550",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://{{SERVER}}/pilots?id=65eb69d7ba9fe7f5ecfc4b11",
+					"protocol": "http",
+					"host": [
+						"{{SERVER}}"
+					],
+					"path": [
+						"pilots"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "65eb69d7ba9fe7f5ecfc4b11"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "SERVER",
+			"value": "localhost:8000",
+			"type": "default"
+		}
+	]
+}

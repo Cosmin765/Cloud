@@ -18,7 +18,7 @@ class CustomHandler(http.server.BaseHTTPRequestHandler):
 
     @staticmethod
     def handler_404():
-        return 'Not found', 404
+        return 'Not Found', 404
 
     def _complete_request(self, handler):
         request.body = None
@@ -49,26 +49,34 @@ class CustomHandler(http.server.BaseHTTPRequestHandler):
         json.dump(content, out_wrapper)
         out_wrapper.detach()  # prevent from closing the file
 
-    def do_GET(self):
+    def parse_args(self):
         request.args = None
-        if '?' in self.path:
-            self.path, args = self.path.split('?')
-            request.args = {}
-            for pair in args.split('&'):
-                if not pair:
-                    continue
-                key, value = pair.split('=')
-                request.args[key] = value
+        try:
+            if '?' in self.path:
+                self.path, args = self.path.split('?')
+                request.args = {}
+                for pair in args.split('&'):
+                    if not pair:
+                        continue
+                    key, value = pair.split('=')
+                    request.args[key] = value
+        except Exception as exc:
+            print(exc)
 
+    def do_GET(self):
+        self.parse_args()
         self._complete_request(self.MAPPING.get(('GET', self.path), self.handler_404))
 
     def do_POST(self):
+        self.parse_args()
         self._complete_request(self.MAPPING.get(('POST', self.path), self.handler_404))
 
     def do_PUT(self):
+        self.parse_args()
         self._complete_request(self.MAPPING.get(('PUT', self.path), self.handler_404))
 
     def do_DELETE(self):
+        self.parse_args()
         self._complete_request(self.MAPPING.get(('DELETE', self.path), self.handler_404))
 
 
