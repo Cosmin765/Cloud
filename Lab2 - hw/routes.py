@@ -29,7 +29,7 @@ def pilots_item_get(pilot_id):
 
 @server.register_route(verb='GET', route='/pilots')
 def pilots_get():
-    pilot_id = request.args and request.args.get('id')
+    pilot_id = request.positional_arg
     if pilot_id:
         return pilots_item_get(pilot_id)
     else:
@@ -67,7 +67,7 @@ def pilots_item_post(pilot_id):
 
 @server.register_route(verb='POST', route='/pilots')
 def pilots_post():
-    pilot_id = request.args and request.args.get('id')
+    pilot_id = request.positional_arg
     if pilot_id:
         return pilots_item_post(pilot_id)
     else:
@@ -98,7 +98,7 @@ def pilots_item_put(pilot_id):
 
 @server.register_route(verb='PUT', route='/pilots')
 def pilots_put():
-    pilot_id = request.args and request.args.get('id')
+    pilot_id = request.positional_arg
     if pilot_id:
         return pilots_item_put(pilot_id)
     else:
@@ -126,7 +126,7 @@ def pilots_item_delete(pilot_id):
 
 @server.register_route(verb='DELETE', route='/pilots')
 def pilots_delete():
-    pilot_id = request.args and request.args.get('id')
+    pilot_id = request.positional_arg
     if pilot_id:
         return pilots_item_delete(pilot_id)
     else:

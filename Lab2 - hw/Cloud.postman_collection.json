@@ -24,24 +24,19 @@
 			"response": []
 		},
 		{
-			"name": "http://{{SERVER}}/pilots?id=65ea2e2849ef9a00e0dcd558",
+			"name": "http://{{SERVER}}/pilots/65ea2e2849ef9a00e0dcd558",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://{{SERVER}}/pilots?id=65ea2e2849ef9a00e0dcd558",
+					"raw": "http://{{SERVER}}/pilots/65ea2e2849ef9a00e0dcd558",
 					"protocol": "http",
 					"host": [
 						"{{SERVER}}"
 					],
 					"path": [
-						"pilots"
-					],
-					"query": [
-						{
-							"key": "id",
-							"value": "65ea2e2849ef9a00e0dcd558"
-						}
+						"pilots",
+						"65ea2e2849ef9a00e0dcd558"
 					]
 				}
 			},
@@ -75,7 +70,7 @@
 			"response": []
 		},
 		{
-			"name": "http://{{SERVER}}/pilots?id=65ea2e2849ef9a00e0dcd558",
+			"name": "http://{{SERVER}}/pilots/65eb69d7ba9fe7f5ecfc4b11",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -89,19 +84,14 @@
 					}
 				},
 				"url": {
-					"raw": "http://{{SERVER}}/pilots?id=65eb69d7ba9fe7f5ecfc4b11",
+					"raw": "http://{{SERVER}}/pilots/65eb69d7ba9fe7f5ecfc4b11",
 					"protocol": "http",
 					"host": [
 						"{{SERVER}}"
 					],
 					"path": [
-						"pilots"
-					],
-					"query": [
-						{
-							"key": "id",
-							"value": "65eb69d7ba9fe7f5ecfc4b11"
-						}
+						"pilots",
+						"65eb69d7ba9fe7f5ecfc4b11"
 					]
 				}
 			},
@@ -126,7 +116,7 @@
 			"response": []
 		},
 		{
-			"name": "http://{{SERVER}}/pilots",
+			"name": "http://{{SERVER}}/pilots/65eb69d7ba9fe7f5ecfc4b11",
 			"request": {
 				"method": "PUT",
 				"header": [],
@@ -140,26 +130,21 @@
 					}
 				},
 				"url": {
-					"raw": "http://{{SERVER}}/pilots?id=65eb69d7ba9fe7f5ecfc4b11",
+					"raw": "http://{{SERVER}}/pilots/65eb69d7ba9fe7f5ecfc4b11",
 					"protocol": "http",
 					"host": [
 						"{{SERVER}}"
 					],
 					"path": [
-						"pilots"
-					],
-					"query": [
-						{
-							"key": "id",
-							"value": "65eb69d7ba9fe7f5ecfc4b11"
-						}
+						"pilots",
+						"65eb69d7ba9fe7f5ecfc4b11"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "http://{{SERVER}}/pilots?id=65ea2e2849ef9a00e0dcd550",
+			"name": "http://{{SERVER}}/pilots",
 			"request": {
 				"method": "DELETE",
 				"header": [],
@@ -177,24 +162,19 @@
 			"response": []
 		},
 		{
-			"name": "http://{{SERVER}}/pilots?id=65ea2e2849ef9a00e0dcd550",
+			"name": "http://{{SERVER}}/pilots/65eb69d7ba9fe7f5ecfc4b11",
 			"request": {
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://{{SERVER}}/pilots?id=65eb69d7ba9fe7f5ecfc4b11",
+					"raw": "http://{{SERVER}}/pilots/65eb69d7ba9fe7f5ecfc4b11",
 					"protocol": "http",
 					"host": [
 						"{{SERVER}}"
 					],
 					"path": [
-						"pilots"
-					],
-					"query": [
-						{
-							"key": "id",
-							"value": "65eb69d7ba9fe7f5ecfc4b11"
-						}
+						"pilots",
+						"65eb69d7ba9fe7f5ecfc4b11"
 					]
 				}
 			},

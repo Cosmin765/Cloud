@@ -8,6 +8,7 @@ class Request:
     def __init__(self):
         self.body = None
         self.args = None
+        self.positional_arg = None
 
 
 request = Request()
@@ -51,6 +52,12 @@ class CustomHandler(http.server.BaseHTTPRequestHandler):
 
     def parse_args(self):
         request.args = None
+        request.positional_arg = None
+
+        if self.path.count('/') > 1:
+            i = self.path.index('/', 1)
+            self.path, request.positional_arg = self.path[:i], self.path[i + 1:]
+
         try:
             if '?' in self.path:
                 self.path, args = self.path.split('?')
