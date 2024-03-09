@@ -1,0 +1,32 @@
+.pilotCard {
+    border-radius: 15px;
+    margin: 10px;
+    padding: 10px;
+    width: 200px;
+}
+
+.nameGroup > p {
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.firstName {
+    font-family: "Ojuju", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
+}
+
+.lastName {
+    font-family: "Rowdies", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.profileImg {
+    width: 100%;
+}
+
+.score {
+    font-weight: bold;
+}
