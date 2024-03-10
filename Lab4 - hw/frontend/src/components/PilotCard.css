@@ -3,6 +3,13 @@
     margin: 10px;
     padding: 10px;
     width: 200px;
+    height: 257.6px;
+    overflow: hidden;
+}
+
+.pilotCard:hover > .moreInfo {
+    transition: all 0.2s;
+    transform: translateY(-100%);
 }
 
 .nameGroup > p {
@@ -23,10 +30,17 @@
     font-style: normal;
 }
 
-.profileImg {
-    width: 100%;
+.content {
+    position: relative;
 }
 
-.score {
+.moreInfo {
+    border-top: solid 1px;
+    padding: 10px 0;
     font-weight: bold;
+}
+
+.moreInfo p {
+    text-transform: capitalize;
+    margin: 0;
 }
