@@ -14,13 +14,13 @@ export default function PilotCard({pilot}) {
             setBackgroundColor(`rgb(${v[0]}, ${v[1]}, ${v[2]})`);
             setDark(color.isDark);
         })
-        .catch(e => console.log(e));
+        .catch(e => console.error(e));
     }, []);
 
     return (
         <div className='pilotCard' style={{backgroundColor, color: dark ? 'black' : 'white'}}>
             <div className='content'>
-                <img style={{width: '100%'}} src={pilot.image_url} />
+                <img alt={pilot.last_name} style={{width: '100%'}} src={pilot.image_url} />
                 <div style={{display: 'flex', justifyContent: 'space-between'}}>
                     <div className='nameGroup'>
                         <p className='firstName'>{pilot.first_name}</p>
@@ -32,7 +32,7 @@ export default function PilotCard({pilot}) {
 
             <div className='moreInfo' style={{backgroundColor}}>
                 {Object.entries(pilot.extra_info).map(([key, value]) => {
-                    return <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                    return <div key={key} style={{display: 'flex', justifyContent: 'space-between'}}>
                         <p>{key}</p>
                         <p>{value}</p>
                     </div>;
