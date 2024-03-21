@@ -3,6 +3,7 @@ import random
 import bson
 from fastapi import FastAPI, Response
 from fastapi.middleware.cors import CORSMiddleware
+from collections import defaultdict
 
 from common import util
 
@@ -17,9 +18,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+score_delta_cache = defaultdict(int)
+
 
 @app.get('/scores/{pilot_id}', status_code=200)
-def pilots_item_get(pilot_id, response: Response):
+def pilot_score(pilot_id, response: Response):
     try:
         pilot_id = bson.ObjectId(pilot_id)
     except (TypeError, bson.errors.InvalidId):
@@ -33,6 +36,7 @@ def pilots_item_get(pilot_id, response: Response):
         response.status_code = 404
         return "Not Found"
 
-    final_score = pilot['score'] + random.randint(-10, 10)
+    delta_score = random.randint(0, 5)
+    score_delta_cache[pilot_id] += delta_score
 
-    return 0 if final_score < 0 else final_score
+    return pilot['score'] + score_delta_cache[pilot_id]

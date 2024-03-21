@@ -1,13 +1,14 @@
 import { FastAverageColor } from 'fast-average-color';
 import './PilotCard.css';
 import { useEffect, useState } from 'react';
+import { SCORES_GET } from '../config';
 
 
 export default function PilotCard({pilot}) {
     const [backgroundColor, setBackgroundColor] = useState('white');
     const [dark, setDark] = useState(true);
-    const [team, setTeam] = useState({});
     const [score, setScore] = useState(pilot.score);
+    const [highlight, setHighlight] = useState(false);
 
     useEffect(() => {
         new FastAverageColor().getColorAsync(pilot.image_url)
@@ -19,24 +20,25 @@ export default function PilotCard({pilot}) {
         .catch(e => console.error(e));
     }, []);
 
-    useEffect(() => {
-        fetch(`http://localhost:8002/teams/${pilot.extra_info.team_id}`)
+    function getScores() {
+        fetch(`${SCORES_GET}/${pilot._id}`)
         .then(response => response.json())
-        .then(_team => {
-            setTeam(_team);
+        .then(_score => {
+            setScore(_score);
+            setHighlight(true);
+            setTimeout(() => {
+                setHighlight(false);
+            }, 200);
         })
         .catch(error => console.error(error));
-    }, []);
+    }
 
     useEffect(() => {
+        getScores();
+
         setInterval(() => {
-            fetch(`http://localhost:8003/scores/${pilot._id}`)
-            .then(response => response.json())
-            .then(_score => {
-                setScore(_score);
-            })
-            .catch(error => console.error(error));
-        }, 60000);
+            getScores();
+        }, 5000);
     }, []);
 
     const info = Object.entries(pilot.extra_info)
@@ -47,13 +49,6 @@ export default function PilotCard({pilot}) {
             <p>{value}</p>
         </div>;
     });
-    
-    info.push(
-        <div key='team' style={{display: 'flex', justifyContent: 'space-between'}}>
-            <p>Team</p>
-            <p>{team.name}</p>
-        </div>
-    );
 
     return (
         <div className='pilotCard' style={{backgroundColor, color: dark ? 'black' : 'white'}}>
@@ -64,7 +59,7 @@ export default function PilotCard({pilot}) {
                         <p className='firstName'>{pilot.first_name}</p>
                         <p className='lastName'>{pilot.last_name}</p>
                     </div>
-                    <p style={{fontWeight: 'bold'}}>Score: {score}</p>
+                    <p style={{fontWeight: 'bold', transition: 'all 200ms', color: highlight ? 'red' : dark ? 'black' : 'white'}}>Score: {score}</p>
                 </div>
             </div>
 
