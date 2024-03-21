@@ -2,8 +2,8 @@ import bson
 from fastapi import FastAPI, Response
 from fastapi.middleware.cors import CORSMiddleware
 
-import util
-from models import *
+from common import util
+from common.models import *
 
 
 app = FastAPI()

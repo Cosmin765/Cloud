@@ -1,8 +1,15 @@
 from pydantic import BaseModel
 
 
+class Team(BaseModel):
+    name: str
+    score: int
+    image_url: str
+    pilot_ids: list
+
+
 class PilotExtraInfo(BaseModel):
-    team: str
+    team_id: str
     country: str
     podiums: int
 
